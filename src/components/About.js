@@ -6,7 +6,10 @@ function About({ data }) {
   return (
     <div className="container about-container">
       <div className="about-item about">
-        <img src={data && data[0].Image[0].url} />
+        <img
+          src={data && data[0].Image[0].url}
+          alt={data && data[0].Image[0].url}
+        />
         <div className="about-text-container">
           <p className="about-container-title">{data && data[0].Title}</p>
           <p className="about-container-description">
