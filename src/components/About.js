@@ -1,8 +1,18 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
+import Loader from "./Loader";
 
 function About({ data }) {
   console.log(data);
+
+  if (!data) {
+    return (
+      <div className="container about-container">
+        <Loader />
+      </div>
+    );
+  }
+
   return (
     <div className="container about-container">
       <div className="about-item about">

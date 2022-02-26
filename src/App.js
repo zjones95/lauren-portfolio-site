@@ -37,7 +37,9 @@ function App() {
   fetchData();
 
   useEffect(() => {
-    setLoading(false);
+    if (data) {
+      setLoading(false);
+    }
   }, [data]);
 
   return (

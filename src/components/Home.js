@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import Image from "./Image";
+import Loader from "./Loader";
 
 import LightBox from "./LightBox";
 
@@ -11,7 +12,9 @@ function Home({ data }) {
     <div>
       {lightBox && <LightBox setLightBox={setLightBox} image={lightBox} />}
       <div className="home-container container">
-        {data &&
+        {!data ? (
+          <Loader />
+        ) : (
           data.map((item, i) => {
             if (item.ImageType === "drawings") {
               return null;
@@ -26,7 +29,8 @@ function Home({ data }) {
                 setLightBox={setLightBox}
               />
             );
-          })}
+          })
+        )}
       </div>
     </div>
   );

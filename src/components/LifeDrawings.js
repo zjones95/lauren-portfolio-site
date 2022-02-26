@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Image from "./Image";
 
 import LightBox from "./LightBox";
+import Loader from "./Loader";
 
 function LifeDrawings({ data }) {
   const [lightBox, setLightBox] = useState("");
@@ -11,7 +12,9 @@ function LifeDrawings({ data }) {
     <div>
       {lightBox && <LightBox setLightBox={setLightBox} image={lightBox} />}
       <div className="home-container container">
-        {data &&
+        {!data ? (
+          <Loader />
+        ) : (
           data.map((item, i) => {
             if (item.ImageType !== "drawings") {
               return null;
@@ -26,7 +29,8 @@ function LifeDrawings({ data }) {
                 setLightBox={setLightBox}
               />
             );
-          })}
+          })
+        )}
       </div>
     </div>
   );
