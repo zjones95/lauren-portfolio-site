@@ -51,7 +51,7 @@ function App() {
     if (data) {
       setLoading(false);
     }
-  }, [data]);
+  }, [data, dataIsEmpty]);
 
   return (
     <div className="App">

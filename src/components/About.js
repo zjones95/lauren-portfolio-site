@@ -14,7 +14,7 @@ function About({ data }) {
   return (
     <div className="container about-container">
       <div className="about-item about">
-        <img src="about-image.png" alt="about-image" />
+        <img src="about-image.png" alt="about" />
         <div className="about-text-container">
           <p className="about-container-title">{data && data[0].Title}</p>
           <p className="about-container-description">
