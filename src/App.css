@@ -47,6 +47,41 @@ a {
   font-style: italic;
 }
 
+.mobile-nav-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.mobile-nav-container h1 {
+  text-align: center;
+  line-height: 1;
+}
+
+.mobile-nav-top-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-top: 30px;
+}
+
+.mobile-nav-bottom-container {
+  margin-top: 20px;
+}
+
+.nav-link-container {
+  margin-top: 20px;
+}
+
+.nav-link-container a {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .home-container {
   display: flex;
   width: 100%;
@@ -347,5 +382,44 @@ a {
   }
   100% {
     transform: scale(0.9);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .home-container {
+    flex-direction: column;
+  }
+  
+  .image-parent {
+    min-height: auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .image-parent img {
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .about-container {
+    flex-direction: column;
+  }
+
+  .about-item {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .contact-input {
+    height: 40px;
+  }
+
+  .contact-textarea {
+    height: 200px;
+  }
+
+  .contact-container {
+    margin-bottom: 20px;
   }
 }

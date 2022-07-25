@@ -9,7 +9,7 @@ function Home({ data }) {
   const [lightBox, setLightBox] = useState("");
 
   return (
-    <div>
+    <div className="container">
       {lightBox && <LightBox setLightBox={setLightBox} image={lightBox} />}
       <div className="home-container container">
         {!data ? (

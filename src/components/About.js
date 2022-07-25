@@ -3,8 +3,6 @@ import ReactMarkdown from "react-markdown";
 import Loader from "./Loader";
 
 function About({ data }) {
-  console.log(data);
-
   if (!data) {
     return (
       <div className="container about-container">
@@ -16,10 +14,7 @@ function About({ data }) {
   return (
     <div className="container about-container">
       <div className="about-item about">
-        <img
-          src={data && data[0].Image[0].url}
-          alt={data && data[0].Image[0].url}
-        />
+        <img src="about-image.png" alt="about-image" />
         <div className="about-text-container">
           <p className="about-container-title">{data && data[0].Title}</p>
           <p className="about-container-description">

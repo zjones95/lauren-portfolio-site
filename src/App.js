@@ -1,17 +1,26 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+
+// Components
 import Home from "./components/Home";
 import About from "./components/About";
 import LifeDrawings from "./components/LifeDrawings";
 import Nav from "./components/Nav";
+import MobileNav from "./components/MobileNav";
 import Loader from "./components/Loader";
 
-function App() {
-  const API = "https://lauren-api-mongo.herokuapp.com";
+// Libs
+import useMobileDetect from "use-mobile-detect-hook";
 
+const API = "https://lauren-api-mongo.herokuapp.com";
+
+function App() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({});
+  const detectMobile = useMobileDetect();
+
+  const dataIsEmpty = Object.keys(data).length === 0;
 
   const fetchData = async () => {
     const piecesResponse = await fetch(`${API}/pieces`);
@@ -34,9 +43,11 @@ function App() {
     return setData(data);
   };
 
-  fetchData();
-
   useEffect(() => {
+    if (dataIsEmpty) {
+      return fetchData();
+    }
+
     if (data) {
       setLoading(false);
     }
@@ -48,7 +59,7 @@ function App() {
         <Loader />
       ) : (
         <Router>
-          <Nav />
+          {detectMobile.isMobile() ? <MobileNav /> : <Nav />}
           <Routes>
             <Route exact path="/" element={<Home data={data.pieces} />} />
             <Route path="/about" element={<About data={data.about} />} />
