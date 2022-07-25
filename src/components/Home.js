@@ -9,7 +9,7 @@ function Home({ data }) {
   const [lightBox, setLightBox] = useState("");
 
   return (
-    <div className="container">
+    <>
       {lightBox && <LightBox setLightBox={setLightBox} image={lightBox} />}
       <div className="home-container container">
         {!data ? (
@@ -32,7 +32,7 @@ function Home({ data }) {
           })
         )}
       </div>
-    </div>
+    </>
   );
 }
 
